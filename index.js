@@ -14,7 +14,7 @@ var xml = function(options) {
       wrapper.element('AdSystem', ad.AdSystem.name, { version : ad.AdSystem.version });
       wrapper.element('VASTAdTagURI').cdata(ad.VASTAdTagURI);
       ad.impressions.forEach(function(impression) {
-        if (track) wrapper.element('Impression').cdata(impression.url);
+        if (track) wrapper.element('Impression', { id : impression.id }).cdata(impression.url);
       });
       wrapper.element('Creatives');
     } else {
